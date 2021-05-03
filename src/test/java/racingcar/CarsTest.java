@@ -26,4 +26,13 @@ public class CarsTest {
 		assertThat(cars.getCars().get(2).getName()).isEqualTo("car3");
 	}
 
+	@Test
+	@DisplayName("cars 에 들어있는 모든 car 의 movePosition 을 실행")
+	public void testMoveCarsPosition() {
+		setTest();
+		cars.moveCarsPosition();
+		assertThat(cars.getCars().get(0).getPosition()).isBetween(0, 1);
+		assertThat(cars.getCars().get(1).getPosition()).isBetween(0, 1);
+		assertThat(cars.getCars().get(2).getPosition()).isBetween(0, 1);
+	}
 }

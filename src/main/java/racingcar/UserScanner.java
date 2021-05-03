@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 public class UserScanner {
 	private static final int MAX_LENGTH = 5;
 	private static final int MIN_LENGTH = 1;
+	private static final String numberRegex = "^[0-9]+$";
 	private final Scanner scanner = new Scanner(System.in);
 
 	public Cars scanCars() {
@@ -45,5 +46,19 @@ public class UserScanner {
 			cars.addCar(car);
 		}
 		return cars;
+	}
+
+	public int scanNumber() {
+		System.out.println("시도할 횟수는 몇 회인가요?");
+		String input = scanner.next();
+		while (!isValidNumber(input)) {
+			System.out.println("잘못된 입력입니다. 다시 입력하세요.");
+			input = scanner.next();
+		}
+		return Integer.parseInt(input);
+	}
+
+	public boolean isValidNumber(String number) {
+		return number.matches(numberRegex);
 	}
 }

@@ -42,4 +42,20 @@ public class UserScannerTest {
 		boolean isValidInput = userScanner.isValidInput(input);
 		assertThat(isValidInput).isFalse();
 	}
+
+	@Test
+	@DisplayName("횟수 입력시 숫자 입력시 true 반환")
+	public void testScanNumberTrue() {
+		String input = "1234567890";
+		boolean isValidNumber = userScanner.isValidNumber(input);
+		assertThat(isValidNumber).isTrue();
+	}
+
+	@ParameterizedTest
+	@DisplayName("횟수입력시 숫자 이외의 입력시 false 반환")
+	@ValueSource(strings = {"111.", "3.1", "kia", "123k"})
+	public void testScanNumberFalse(String input) {
+		boolean isValidNumber = userScanner.isValidNumber(input);
+		assertThat(isValidNumber).isFalse();
+	}
 }
