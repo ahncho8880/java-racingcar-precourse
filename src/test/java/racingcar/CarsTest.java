@@ -35,4 +35,15 @@ public class CarsTest {
 		assertThat(cars.getCars().get(1).getPosition()).isBetween(0, 1);
 		assertThat(cars.getCars().get(2).getPosition()).isBetween(0, 1);
 	}
+
+	@Test
+	@DisplayName("현재 1등의 position 를 반환")
+	public void testFirstCarsPosition() {
+		setTest();
+		car1.position = 11;
+		car2.position = 9;
+		car3.position = 1;
+		int first = cars.getFirstPosition();
+		assertThat(first).isEqualTo(11);
+	}
 }

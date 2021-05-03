@@ -20,6 +20,14 @@ public class Cars {
 		}
 	}
 
+	public int getFirstPosition() {
+		int firstPosition = 0;
+		for (Car car : cars) {
+			firstPosition = Math.max(car.getPosition(), firstPosition);
+		}
+		return firstPosition;
+	}
+
 	public void printCars() {
 		for (Car car : cars) {
 			System.out.println(car.toStringCar());
