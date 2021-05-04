@@ -59,6 +59,9 @@ public class UserScanner {
 	}
 
 	public boolean isValidNumber(String number) {
+		if (number.charAt(0) == '0') {
+			return false;
+		}
 		return number.matches(numberRegex);
 	}
 }

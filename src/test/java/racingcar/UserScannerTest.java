@@ -58,4 +58,12 @@ public class UserScannerTest {
 		boolean isValidNumber = userScanner.isValidNumber(input);
 		assertThat(isValidNumber).isFalse();
 	}
+
+	@ParameterizedTest
+	@DisplayName("횟수입력시 0으로 시작하는 숫자 입력시 false 반환")
+	@ValueSource(strings = {"0", "01", "010", "0265"})
+	public void testScanNumberZeroStart(String input) {
+		boolean isValidNumber = userScanner.isValidNumber(input);
+		assertThat(isValidNumber).isFalse();
+	}
 }
