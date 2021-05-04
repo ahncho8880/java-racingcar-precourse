@@ -28,6 +28,19 @@ public class Cars {
 		return firstPosition;
 	}
 
+	public List<String> getWinners() {
+		List<String> winners = new ArrayList<>();
+		for (Car car : getCars()) {
+			addWinner(winners, car);
+		}
+		return winners;
+	}
+
+	public void addWinner(List<String> winners, Car car) {
+		if (getFirstPosition() == car.getPosition())
+			winners.add(car.getName());
+	}
+
 	public void printCars() {
 		for (Car car : cars) {
 			System.out.println(car.toStringCar());

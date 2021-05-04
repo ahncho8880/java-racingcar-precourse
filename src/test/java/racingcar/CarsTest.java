@@ -46,4 +46,36 @@ public class CarsTest {
 		int first = cars.getFirstPosition();
 		assertThat(first).isEqualTo(11);
 	}
+
+	@Test
+	@DisplayName("우승자가 1명일 경우")
+	public void testGetWinner() {
+		Cars cars = new Cars();
+		Car car1 = new Car("car1");
+		Car car2 = new Car("car2");
+		Car car3 = new Car("car3");
+		car1.position = 1;
+		car2.position = 2;
+		car3.position = 3;
+		cars.addCar(car1);
+		cars.addCar(car2);
+		cars.addCar(car3);
+		assertThat(cars.getWinners()).containsExactly("car3");
+	}
+
+	@Test
+	@DisplayName("우승자가 1명이상일 경우")
+	public void testGetWinners() {
+		Cars cars = new Cars();
+		Car car1 = new Car("car1");
+		Car car2 = new Car("car2");
+		Car car3 = new Car("car3");
+		car1.position = 1;
+		car2.position = 3;
+		car3.position = 3;
+		cars.addCar(car1);
+		cars.addCar(car2);
+		cars.addCar(car3);
+		assertThat(cars.getWinners()).containsExactly("car2", "car3");
+	}
 }

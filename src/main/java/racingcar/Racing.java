@@ -1,10 +1,9 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
-	UserScanner userScanner = new UserScanner();
+	private final UserScanner userScanner = new UserScanner();
 
 	public void start() {
 		Cars cars = userScanner.scanCars();
@@ -14,18 +13,8 @@ public class Racing {
 			cars.moveCarsPosition();
 			cars.printCars();
 		}
-		List<String> winners = getWinners(cars);
+		List<String> winners = cars.getWinners();
 		printWinners(winners);
-	}
-
-	public List<String> getWinners(Cars cars) {
-		List<String> winners = new ArrayList<>();
-		int fistPosition = cars.getFirstPosition();
-		for (Car car : cars.getCars()) {
-			if (fistPosition == car.position)
-				winners.add(car.getName());
-		}
-		return winners;
 	}
 
 	public void printWinners(List<String> winners) {
