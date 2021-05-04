@@ -14,7 +14,7 @@ public class Car {
 			position += 1;
 	}
 
-	public String getHyphen(int number) {
+	public String toHyphen(int number) {
 		StringBuilder hyphen = new StringBuilder();
 		while (number-- > 0) {
 			hyphen.append("-");
@@ -23,7 +23,7 @@ public class Car {
 	}
 
 	public String toStringCar() {
-		return name + " : " + getHyphen(position);
+		return name + " : " + toHyphen(position);
 	}
 
 	public String getName() {

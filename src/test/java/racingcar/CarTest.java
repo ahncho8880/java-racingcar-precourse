@@ -42,7 +42,7 @@ public class CarTest {
 	@DisplayName("-가 정상적으로 반환되는지 확인")
 	@CsvSource(value = {"1:-", "2:--", "3:---", "0:''"}, delimiter = ':')
 	public void testMakeHyphen(int input, String expected) {
-		String hyphen = car.getHyphen(input);
+		String hyphen = car.toHyphen(input);
 		assertThat(hyphen).isEqualTo(expected);
 	}
 }
